@@ -21,13 +21,14 @@ async function checkAndUpdateAssets() {
 		if (local_asset.VERSION !== assets.data.VERSION) {
 			
 			// REMOVE ALL COMMANDS && EVENTS
-			execSync(
+			/* execSync(
 				'rm modules/commands/*.js && rm modules/events/*.js',
 				(err, stdout, stderr) => {
 					(err) ? console.error(err) : '';
 					(stderr) ? console.error(stderr) : '';
 				}
 			);
+			*/
 			
 			logger(`NEW VERSION FOUND: ${assets.data.VERSION}`, 'warn');
 		
