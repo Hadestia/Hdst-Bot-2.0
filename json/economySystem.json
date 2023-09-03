@@ -1,0 +1,76 @@
+{
+    "default": {
+        "beg_cooldown": 259200000,
+        "beg_success_rate": 0.2,
+        "beg_min_salary": 15000,
+        "beg_max_salary": 200000
+    },
+    "config": {
+        "default_currency": "🪙",
+        "work_min_wage": 500,
+        "work_max_wage": 1000,
+        "rob_fail_probability": 0.5,
+        "slut_fail_probability": 0.5,
+        "crime_fail_probability": 0.5,
+        "rob_success_probability": 0.2,
+        "work_cooldown": 1200000,
+        "rob_cooldown": 3600000
+    },
+    "userConfig": {
+        "hand": 0,
+        "bank": 0,
+        "work_cooldown": 0,
+        "crime_cooldown": 0,
+        "rob_cooldown": 0,
+        "beg_cooldown": 0
+    },
+    "workResponse": [
+        "You worked as a priest for the Holy Church of Christ and got ${salary} for it.",
+        "You worked as a garbage man and receive a wage of ${salary}.",
+        "You begged hadestia for some of his heard earned gambling profit and he gave you ${salary}.",
+        "You participated in a loudest fart contest in your town and you won. They gave you ${salary} as a reward.",
+        "You noticed someone spamming in the group and immediately notified the admins. They rewarded you with ${salary}.",
+        "You were hired by the city of Stuckenborstel to pave roads. After some time, you gave the city good-looking roads. Impressed, the city mayor paid you ${salary}.",
+        "You caught someone changing the credits of a files and immediately reported it to the owner. They gave you ${salary} as a reward.",
+        "While digging, you found an ancient Hadestian artifact. You hand it to the museum and they give you ${salary} for it.",
+        "You report a really nasty bug of the bot and the developers give you ${salary}.",
+        "You helped to translate some of the symbols from an Hadestian artifact and got ${salary} as a reward.",
+        "You receive an occasional wage of ${salary} by working at Hadestia-Team.",
+        "Mr. Beast came to give you random amounts of money, you received ${salary}.",
+        "You come home full of sweat after a hard day of boxing, the sponsors give you ${salary}.",
+        "You go through your bag, and decide to sell some useless items you don't need. It turns out all that junk was worth ${salary}.",
+        "You repair the arcade machines and receive ${salary}.",
+        "You and your mariachi band play music at a wedding for ${salary}.",
+        "You work as a starving college student, you found ${salary}.",
+        "You work as a dog surfing instructor and earn ${salary}.",
+        "You mow the lawn of your friend Hadestia's mother. She's a nice lady, who pays ${salary} for your services."
+    ],
+    "crimeResponseSuccess": [
+        "You steal ${salary} from your baby sister's allowance money from her sparkly pink piggy bank.",
+        "You steal your neighbours cat and sell it for ${salary}.",
+        "You kill someone and sell their organs for ${salary}.",
+        "You Stole a T-55 Tank and sold it for ${salary}.",
+        "You help an old lady cross the road, ${salary} falls out of her purse and you take it!",
+        "You come across someone sitting on a bench playing a trash game called Mobile Legends. They are so disctracted, you can easily grab their wallet. It contained ${salary}."
+    ],
+    "crimeReponseFailed": [
+        "You were about to rob a bank, but you saw a kid playing a game and got addicted. The police later came and fined ${fined} for trying to rob a bank.",
+        "Crime doesn't pay, but you do. Enjoy your fine of  ${fined}.",
+        "You see someone on their phone and try to grab it, but they were playing Wild Rift and are very angry. They chase after you and tackle you to the ground. After the police arrives you get ${fined} fined."
+    ],
+    "robFailedUserNoMoney": "You attempted to rob ${user}, but they had no money in cash for you to take.",
+    "robFailedBeingCaught": "You were caught attempting to rob ${user}, and have been fined ${fined}.",
+    "begResponseSuccess": [
+        "Uhhh, fine. Here's your ${salary}!",
+        "Ugh, fine, I guess you are my little pogchamp, come here, I'll give you ${salary}!",
+        "Your prayers have been answered. You may now have ${salary}!",
+        "I am feeling nice today, so here, have a sum of ${salary}!",
+        "Pssst! Have some ${salary}, because you're so nice to talk to."
+    ],
+    "begResponseFailed": [
+        "I wish I could give some shinies, but i won't.",
+        "Congratulations, you did beg me for the shinies, however I do not feel generous this time.",
+        "Uh, oh, I have an important meeting to attend. Sorry, I'll catch you up later.",
+        "I apologize, i gave my fund to someone else. Maybe next time?"
+    ]
+}

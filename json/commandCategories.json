@@ -1,0 +1,58 @@
+{
+    "administration": {
+        "icon": "🔐",
+        "description": "Group commands and group administration."
+    },
+    "artificial_intelligence": {
+        "icon": "🤖",
+        "description": "Commands with the use of artificial intelligence or for interacting with the bot itself."
+    },
+    "information": {
+        "icon": "📔",
+        "description": "Commands for retrieving information about the bot, user or the group."
+    },
+    "ownership": {
+        "icon": "👤",
+        "description": "Commands for my owner."
+    },
+    "random": {
+        "icon": "🎲",
+        "description": "Random, fun and unexpected commands."
+    },
+    "education": {
+        "icon": "📖",
+        "description": "Useful commands for education."
+    },
+    "system": {
+        "icon": "⚙️",
+        "description": "Commands for the system."
+    },
+    "tools": {
+        "icon": "🛠️",
+        "description": "Useful commands for fetching and other functions."
+    },
+    "media": {
+        "icon": "🎞️",
+        "description": "Commands related to media. e.g Music."
+    },
+    "edited_images": {
+        "icon": "🎭",
+        "description": "Edited images and memes related commands are dumped here."
+    },
+    "games": {
+        "icon": "🎮",
+        "description": "Free, Fun and Enjoying game commands."
+    },
+    "gambling": {
+        "icon": "🎰",
+        "description": "An easy game to earn and loss a lot of money."
+    },
+    "economy": {
+        "icon": "🪙",
+        "description": "Commands that was fun and related to economy system."
+    },
+    "other": {
+        "icon": "🗑️",
+        "description": "Commands which do not fit in either of the above categories."
+    }
+}

@@ -1,0 +1,164 @@
+{
+    "INFO": [
+        "Hadestia Bot",
+        "Modified by Ian Divinus",
+        "https://facebook.com/mensaherong.iantot",
+        "This repository was linked to bot assets repository of Hadestia that include assets auto updater."
+    ],
+    "VERSION": "8.0.6",
+    "CHANGELOGS": "- Ket Ano",
+    "PRIORITY": {
+        "fileTree.js": {
+            "path": "scripts/"
+        },
+        "fileTree.js": {
+            "path": "scripts/"
+        },
+        "assets.js": {
+            "path": "scripts/"
+        },
+        "checkBan.js": {
+            "path": "scripts/"
+        },
+        "utils.js": {
+            "path": "scripts/"
+        },
+        "fileTreeSystem.json": {
+            "path": "json/"
+        }
+    },
+    "MAIN": {
+        "LICENSE-HADESTIA": {
+            "path": "/"
+        },
+        "Hadestia.js": {
+            "path": "/"
+        },
+        "model.js": {
+            "path": "includes/database/"
+        },
+        "listen.js": {
+            "path": "includes/"
+        },
+        "handleCommand.js": {
+            "path": "includes/handle/"
+        },
+        "handleCommandEvent.js": {
+            "path": "includes/handle/"
+        },
+        "handleCommandMessageReply.js": {
+            "path": "includes/handle/"
+        },
+        "handleCreateDatabase.js": {
+            "path": "includes/handle/"
+        },
+        "handleEvent.js": {
+            "path": "includes/handle/"
+        },
+        "handleReaction.js": {
+            "path": "includes/handle/"
+        },
+        "handleReply.js": {
+            "path": "includes/handle/"
+        },
+        "controller_users.js": {
+            "path": "includes/controllers/"
+        },
+        "controller_banned.js": {
+            "path": "includes/controllers/"
+        },
+        "controller_threads.js": {
+            "path": "includes/controllers/"
+        },
+        "model_users.js": {
+            "path": "includes/database/models/"
+        },
+        "model_banned.js": {
+            "path": "includes/database/models/"
+        },
+        "model_threads.js": {
+            "path": "includes/database/models/"
+        },
+        "textFormat.json": {
+            "path": "json/"
+        },
+        "databaseConfig.json": {
+            "path": "json/"
+        },
+        "commandCategories.json": {
+            "path": "json/"
+        },
+        "economySystem.json": {
+            "path": "json/"
+        },
+        "autoResponse.json": {
+            "path": "json/"
+        }
+    },
+    "COMMANDS": [
+        "administration_afk",
+        "administration_economyMain",
+        "administration_group",
+        "ai_sim",
+        "ai_chatGPT",
+        "economy_rob",
+        "economy_balance",
+        "economy_beg",
+        "economy_deposit",
+        "economy_give",
+        "economy_leaderboard",
+        "economy_withdraw",
+        "economy_work",
+        "edited-img_avatar",
+        "edited-img_avatar2",
+        "edited-img_facebookCover",
+        "edited-img_tweet",
+        "education_translate",
+        "education_baybayin",
+        "education_dictionary",
+        "event_adminMessageReply",
+        "event_autoBan",
+        "event_autoRecycleMessage",
+        "event_autoResponse",
+        "event_userRanking",
+        "games_akinator",
+        "gambling_slotMachine",
+        "gambling_tossFlipCoin",
+        "information_botInfo",
+        "information_getID",
+        "media_anime",
+        "media_coupleDP",
+        "media_pinterest",
+        "media_playMusic",
+        "media_shoti",
+        "other_unsent",
+        "ownership_announce",
+        "ownership_banned",
+        "ownership_pendingReqMsg",
+        "ownership_setBotBio",
+        "ownership_stalk",
+        "random_pickName",
+        "random_roll",
+        "random_toss",
+        "system_botReport",
+        "system_botReboot",
+        "system_changelogs",
+        "system_checkUpdate",
+        "system_help",
+        "system_shell",
+        "tools_tiktokDownloadNoWM",
+        "tools_findLyrics",
+        "tools_getLink",
+        "tools_fontStyle"
+    ],
+    "EVENTS": [
+        "event_groupUpdate",
+        "event_antiChange",
+        "event_antiJoin",
+        "event_antiOut",
+        "event_botJoined",
+        "event_botLogs",
+        "event_economyUIO",
+        "event_joinNotif"
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "cache": {
+        "keep": {},
+        "tad": {}
+    },
+    "includes": {
+        "controllers": {},
+        "database": {
+            "models": {}
+        },
+        "handle": {}
+    },
+    "json": {},
+    "languages": {},
+    "modules": {
+        "commands": {},
+        "events": {},
+        "other_nodemodules": {
+            "node_modules": {}
+        }
+    },
+    "scripts": {},
+    "utils": {}
+}

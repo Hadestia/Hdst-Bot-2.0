@@ -1,0 +1,25 @@
+[
+    {
+        "id": "$command-or-event-id-to-avoid-duplicates",
+        "type": "command or event",
+        "version": "1.0.1",
+        "permission": 0,
+        "disabled": false,
+        "author": "Hadestia",
+        "name": "<name of command that will use for execution>",
+        "aliases": [
+            "Alias1",
+            "Alias2"
+        ],
+        "usage": "<usages> [params]",
+        "description": "Sample Description",
+        "cooldown": 1,
+        "category": "e.g(administration)",
+        "script": "myCommand.js",
+        "requiredArgument": 1,
+        "groupCommandOnly": true,
+        "needUserData": true,
+        "needGroupData": true,
+        "dependencies": {}
+    }
+]

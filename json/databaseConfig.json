@@ -1,0 +1,44 @@
+{
+    "all_settings_name": {
+        "receive_update": "Receive bot update.",
+        "auto_resend_msg": "Group Anti-unsent messages",
+        "auto_response_listener": "Auto response listener",
+        "antiout": "Group Anti-out/leave",
+        "antijoin": "Group Anti-join/add",
+        "guard": "Group Anti-change/guard",
+        "allowNSFW": "Group allow NSFW",
+        "allowRankLevels": "Group allow ranking levels",
+        "isBanned": "Group is banned"
+    },
+    "group_data_config": {
+        "receive_update": true,
+        "auto_resend_msg": false,
+        "auto_response_listener": true,
+        "antiout": false,
+        "antijoin": false,
+        "guard": false,
+        "allowNSFW": false,
+        "allowRankLevels": true,
+        "isBanned": false,
+        "bannedCommands": [],
+        "banned": {
+            "name": "Unknown Group Name",
+            "caseID": -1,
+            "reason": "not set",
+            "dateIssued": "not set",
+            "bannedUntil": 0
+        }
+    },
+    "user_data_config": {
+        "afk": "<not set>",
+        "isBanned": false,
+        "bannedCommands": [],
+        "banned": {
+            "name": "Facebook User",
+            "caseID": -1,
+            "reason": "not set",
+            "dateIssued": "not set",
+            "bannedUntil": 0
+        }
+    }
+}
