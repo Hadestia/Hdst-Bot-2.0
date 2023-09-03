@@ -5,8 +5,8 @@
         "https://facebook.com/mensaherong.iantot",
         "This repository was linked to bot assets repository of Hadestia that include assets auto updater."
     ],
-    "VERSION": "8.0.6",
-    "CHANGELOGS": "- Ket Ano",
+    "VERSION": "2.0.0",
+    "CHANGELOGS": "2nd version of Hadestia bot",
     "PRIORITY": {
         "fileTree.js": {
             "path": "scripts/"

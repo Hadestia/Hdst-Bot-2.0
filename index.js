@@ -56,11 +56,14 @@
 		`https://hdst-bot-side-server.${process.env.REPL_OWNER}.repl.co`
 	]
 
+	/*
 	await axios.get(encodeURI (`https://hdst-bot-side-server.hdstteam.repl.co/autoPing?name=Hadestia Bot (Team)&link=${uptimelink[0]}`)).then(()=> {
 		logger('Successfuly added uptime link', 'warn');
 	}).catch(()=>{
 		logger('Cannot add uptime link', 'error');
 	});
+	
+	*/
 	
 	process.env.FB_CHAT_API_NO_UPDATE_CHECK = true;
 
