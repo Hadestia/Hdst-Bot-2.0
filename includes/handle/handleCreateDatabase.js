@@ -7,10 +7,12 @@ module.exports = function({ Utils, Users, Threads, Banned }) {
 	return async function ({ event }) {
 		
 		return new Promise(async function (resolve, reject) {
-		
-			const { allThreadID, allUserID } = global.HADESTIA_BOT_DATA;
+			
 			// check if automatic DB creation was set
-     	   if (!global.HADESTIA_BOT_CONFIG.autoCreateDB) { return; }
+     	   if (!global.HADESTIA_BOT_CONFIG.autoCreateDB) {
+				resolve(true);
+				return;
+			}
         
      	   let { senderID, threadID } = event;
 
@@ -30,11 +32,11 @@ module.exports = function({ Utils, Users, Threads, Banned }) {
 				}
 		    
 				// ####### IF GROUP CHAT ####### //
-				if (event.isGroup && !allThreadID.has(threadID)) {
+				if (event.isGroup && !global.HADESTIA_BOT_DATA.allThreadID.has(threadID)) {
 					await handleGroupData(inputData);
         	    }
 			
-        	    if (!allUserID.has(senderID)) {
+        	    if (!global.HADESTIA_BOT_DATA.allUserID.has(senderID)) {
            	 	let userName = `@user${senderID}`;
             	    try {
              	   	const info = await Users.getInfo(senderID);

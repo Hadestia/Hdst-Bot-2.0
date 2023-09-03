@@ -10,6 +10,11 @@ module.exports.config = {
 	aliases: [ 'stalk' ],
 	envConfig: {
 		inProcessReaction: true
+	},
+	dependencies: {
+		'axios': '',
+		'get-fbid': '',
+		'fs-extra': ''
 	}
 };
 
@@ -17,12 +22,13 @@ module.exports.run = async function ({ api, event, args, utils, returns, Utils, 
 	
 	const axios = require('axios');
 	const fs = require('fs-extra');
-	const request = require('request');
-
+	
 	let { threadID, senderID, messageID } = event;
 
 	async function searchPerson(str) {
-		const search = await api.getUserID(str);
+		// LEGACY
+		/*const search = await api.getUserID(str);
+		
 		if (search[0]) {
 			if (str.indexOf('mark zuckerberg') !== -1) {
 				returns.remove_usercooldown();
@@ -35,7 +41,10 @@ module.exports.run = async function ({ api, event, args, utils, returns, Utils, 
 			Utils.sendReaction.failed(api, event);
 			api.sendMessage(Utils.textFormat('error', 'errOccured', 'I couldn\'t find that person.'), threadID, messageID);
 			return false;
-		}
+		}*/
+		const grabID = require('get-fbid');
+		let result = await grabID(str);
+		return result;
 	}
 	
 	//global.sendReaction.inprocess(api, event);
@@ -61,6 +70,7 @@ module.exports.run = async function ({ api, event, args, utils, returns, Utils, 
 						returns.remove_usercooldown();
 						return Utils.sendReaction.failed(api, event); 
 					}
+					id = init;
 				} else if (init.indexOf('facebook.com') !== -1) {
 					const split = init.split('facebook.com/');
 					const username = split.pop();

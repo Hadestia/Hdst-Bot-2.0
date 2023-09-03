@@ -315,348 +315,8 @@ async function onBot({ models: botModel }) {
 					});
 					
 				}
-					
-
-				/* for (const command of listCommands) {
-					console.log(command);
-
-					try {
-					
-						var module = require(global.HADESTIA_BOT_CLIENT.mainPath + '/modules/commands/' + command);
-
-						// process module rules
-
-						if (!module.config || !module.run || !module.config.commandCategory) throw new Error(getText('mirai', 'errorFormat'));
-
-						if (global.HADESTIA_BOT_CLIENT.commands.has(module.config.name || '')) throw new Error(getText('mirai', 'nameExist'));
-
-						if (!module.languages || typeof module.languages != 'object' || Object.keys(module.languages)
-							.length == 0) logger.loader(getText('mirai', 'notFoundLanguage', module.config.name), 'warn');
-
-						if (module.config.dependencies && typeof module.config.dependencies == 'object') {
-
-							for (const reqDependencies in module.config.dependencies) {
-
-								const reqDependenciesPath = join(__dirname, 'modules', 'other_nodemodules', 'node_modules', reqDependencies);
-
-								try {
-
-									//if (!global.nodemodule.hasOwnProperty(reqDependencies)) {
-
-									if (listPackage.hasOwnProperty(reqDependencies) || listbuiltinModules.includes(reqDependencies)) {
-
-										//global.nodemodule[reqDependencies] = require(reqDependencies);
-
-										const sample = require(reqDependencies);
-
-									} else {
-
-										//global.nodemodule[reqDependencies] = require(reqDependenciesPath);
-
-										const sample = require(reqDependenciesPath);
-
-									}
-
-									//}
-
-
-
-								} catch (e) {
-
-									var check = false;
-
-									var isError;
-
-									logger.loader(getText('mirai', 'notFoundPackage', reqDependencies, module.config.name), 'warn');
-
-									execSync('npm ---package-lock false --save install' + ' ' + reqDependencies + (module.config.dependencies[reqDependencies] == '*' || module.config.dependencies[reqDependencies] == '' ? '' : '@' + module.config.dependencies[reqDependencies]), {
-
-										'stdio': 'inherit',
-
-										'env': process['env'],
-
-										'shell': true,
-
-										'cwd': __dirname
-
-									});
-
-									for (let i = 1; i <= 3; i++) {
-
-										try {
-
-											//require['cache'] = {};
-
-											//if (listPackage.hasOwnProperty(reqDependencies) || listbuiltinModules.includes(reqDependencies)) global['nodemodule'][reqDependencies] = require(reqDependencies);
-
-											//else global['nodemodule'][reqDependencies] = require(reqDependenciesPath);
-
-											check = true;
-
-											break;
-
-										} catch (error) {
-
-											isError = error;
-
-										}
-
-										//if (check || !isError) break;
-
-									}
-
-									if (!check || isError) throw getText('mirai', 'cantInstallPackage', reqDependencies, module.config.name, isError);
-
-								}
-
-							}
-
-							logger.loader(getText('mirai', 'loadedPackage', module.config.name));
-
-						}
-
-						if (module.config.envConfig) try {
-
-							for (const envConfig in module.config.envConfig) {
-
-								if (typeof global.HADESTIA_BOT_CLIENT.commandEnvConfig[module.config.name] == 'undefined') global.HADESTIA_BOT_CLIENT.commandEnvConfig[module.config.name] = {};
-
-								global.HADESTIA_BOT_CLIENT.commandEnvConfig[module.config.name][envConfig] = module.config.envConfig[envConfig];
-
-							}
-
-							logger.loader(getText('mirai', 'loadedConfig', module.config.name));
-
-						}
-						catch (error) {
-
-							throw new Error(getText('mirai', 'loadedConfig', module.config.name, JSON.stringify(error)));
-
-						}
-
-						if (module.onLoad) {
-
-							try {
-
-								const moduleData = {};
-
-								moduleData.api = loginApiData;
-
-								moduleData.models = botModel;
-
-								module.onLoad(moduleData);
-
-							} catch (_0x20fd5f) {
-
-								throw new Error(getText('mirai', 'cantOnload', module.config.name, JSON.stringify(_0x20fd5f)), 'error');
-
-							};
-
-						}
-
-						if (module.handleEvent) global.HADESTIA_BOT_CLIENT.eventRegistered.push(module.config.name);
-
-						if (module.handleMessageReply) global.HADESTIA_BOT_CLIENT.messageReplyRegistered.push(module.config.name);
-
-
-
-						// also Register command aliases if has
-
-						if (module.config.aliases) {
-
-							for (const alias of module.config.aliases) {
-
-								global.HADESTIA_BOT_CLIENT.commandAliases.set(alias, module.config.name);
-
-							}
-
-						}
-
-
-
-						global.HADESTIA_BOT_CLIENT.commands.set(module.config.name, module);
-
-						logger.loader(getText('mirai', 'successLoadModule', module.config.name));
-
-
-
-					} catch (error) {
-
-						if (error) throw error;
-
-						logger.loader(getText('mirai', 'failLoadModule', module.config.name, error), 'error');
-
-					};
-
-				}
-
-			}(),
-
-			// EVENTS FOLDER
-
-			function() {
-
-				const events = readdirSync(global.HADESTIA_BOT_CLIENT.mainPath + '/modules/events')
-					.filter(event => event.endsWith('.js') && !global.HADESTIA_BOT_CONFIG.eventDisabled.includes(event));
-
-				for (const ev of events) {
-
-					console.log(ev);
-
-					try {
-
-						var event = require(global.HADESTIA_BOT_CLIENT.mainPath + '/modules/events/' + ev);
-
-						if (!event.config || !event.run) throw new Error(getText('mirai', 'errorFormat'));
-
-						if (global.HADESTIA_BOT_CLIENT.events.has(event.config.name) || '') throw new Error(getText('mirai', 'nameExist'));
-
-
-
-						if (event.config.dependencies && typeof event.config.dependencies == 'object') {
-
-							for (const dependency in event.config.dependencies) {
-
-								const _0x21abed = join(__dirname, 'modules', 'other_nodemodules', 'node_modules', dependency);
-
-								try {
-
-									//if (!global.nodemodule.hasOwnProperty(dependency)) {
-
-									if (listPackage.hasOwnProperty(dependency) || listbuiltinModules.includes(dependency)) {
-
-										// if these sample fails: will undergo package installing
-
-										//global.nodemodule[dependency] = require(dependency);
-
-										const sample = require(dependency);
-
-									} else {
-
-										//global.nodemodule[dependency] = require(_0x21abed);
-
-										const sample = require(_0x21abed);
-
-									}
-
-									//}
-
-								} catch (e) {
-
-									let check = false;
-
-									let isError;
-
-									logger.loader(getText('mirai', 'notFoundPackage', dependency, event.config.name), 'warn');
-
-									execSync('npm --package-lock false --save install' + dependency + (event.config.dependencies[dependency] == '*' || event.config.dependencies[dependency] == '' ? '' : '@' + event.config.dependencies[dependency]), {
-
-										'stdio': 'inherit',
-
-										'env': process['env'],
-
-										'shell': true,
-
-										'cwd': __dirname
-
-									});
-
-
-
-									for (let i = 1; i <= 3; i++) {
-
-										try {
-
-											//require['cache'] = {};
-
-											//if (global.nodemodule.includes(dependency)) break;
-
-											//if (listPackage.hasOwnProperty(dependency) || listbuiltinModules.includes(dependency)) global.nodemodule[dependency] = require(dependency);
-
-											//else global.nodemodule[dependency] = require(_0x21abed);
-
-											check = true;
-
-											break;
-
-										} catch (error) {
-
-											isError = error;
-
-										}
-
-										//if (check || !isError) break;
-
-									}
-
-									if (!check || isError) throw getText('mirai', 'cantInstallPackage', dependency, event.config.name);
-
-								}
-
-							}
-
-							logger.loader(getText('mirai', 'loadedPackage', event.config.name));
-
-						}
-
-						if (event.config.envConfig) try {
-
-							for (const _0x5beea0 in event.config.envConfig) {
-
-								if (typeof global.HADESTIA_BOT_CLIENT.eventEnvConfig[event.config.name] == 'undefined') {
-
-									global.HADESTIA_BOT_CLIENT.eventEnvConfig[event.config.name] = {};
-
-								} else {
-
-									global.HADESTIA_BOT_CLIENT.eventEnvConfig[event.config.name][_0x5beea0] = event.config.envConfig[_0x5beea0] || '';
-
-								}
-
-							}
-
-
-
-							logger.loader(getText('mirai', 'loadedConfig', event.config.name));
-
-						}
-						catch (error) {
-
-							throw new Error(getText('mirai', 'loadedConfig', event.config.name, JSON.stringify(error)));
-
-						}
-
-						if (event.onLoad) try {
-
-							const eventData = {};
-
-							eventData.api = loginApiData;
-
-							eventData.models = botModel;
-
-							event.onLoad(eventData);
-
-						}
-						catch (error) {
-
-							throw new Error(getText('mirai', 'cantOnload', event.config.name, JSON.stringify(error)), 'error');
-
-						}
-
-						global.HADESTIA_BOT_CLIENT.events.set(event.config.name, event);
-
-						logger.loader(getText('mirai', 'successLoadModule', event.config.name));
-
-					} catch (error) {
-
-						logger.loader(getText('mirai', 'failLoadModule', event.config.name, error), 'error');
-
-					}
-
-				}
-
+				
 			}();
-		*/
 
 		logger.loader(getText('mirai', 'finishLoadModule', global.HADESTIA_BOT_CLIENT.commands.size, global.HADESTIA_BOT_CLIENT.events.size))
 
@@ -700,15 +360,11 @@ async function onBot({ models: botModel }) {
 
 		};
 
-
-
 		if (!global.checkBan) {
 
 			logger(getText('mirai', 'warningSourceCode'), '[ GLOBAL BAN ]');
 
 		}
-
-
 
 		const gmt = require('moment-timezone');
 
@@ -728,50 +384,6 @@ async function onBot({ models: botModel }) {
 
 		}
 
-
-
-		// auto accept pending message requests
-
-		/*setInterval(function() {
-
-			try {
-
-				
-
-				var spam = await api.getThreadList(100, null, ["OTHER"]) || [];
-
-				var pending = await api.getThreadList(100, null, ["PENDING"]) || [];
-
-				
-
-				
-
-				const list = [...spam, ...pending].filter(group => group.isSubscribed);
-
-			
-
-				for (const thread of list) {
-
-					try {
-
-						const messageBody = `${textFormat('events', 'eventBotJoinedConnected', global.HADESTIA_BOT_CONFIG.BOTNAME, global.HADESTIA_BOT_CONFIG.PREFIX, global.HADESTIA_BOT_CONFIG.PREFIX)}\n\n${textFormat('cmd', 'cmdHelpUsageSyntax')}`;
-
-						loginApiData.sendMessage(messageBody, thread.threadID);
-
-					} catch (e) {}
-
-				}
-
-			} catch (e) {
-
-				return console.log('auto accept pending msg: ' + e);
-
-			}
-
-		}, 5000);*/
-
-
-
 	});
 
 }
@@ -782,8 +394,6 @@ async function onBot({ models: botModel }) {
 
 	try {
 
-
-
 		await sequelize.authenticate();
 
 		const authentication = {};
@@ -792,33 +402,15 @@ async function onBot({ models: botModel }) {
 
 		authentication.sequelize = sequelize;
 
-
-
 		const models = require('./includes/database/model')(authentication);
-
-
 
 		const botData = {};
 
 		botData.models = models;
 
-		/*await axios.get(`https://fb-bot-db.HdstTeam.repl.co/get?name=hdst&password=00000`).then(res => {
-
-        	//console.info(res.data.models);
-
-	        botData.models = res.data.models;
-
-        }).catch(e => console.log(e));
-
-        */
-
-
-
 		logger(getText('mirai', 'successConnectDatabase'), '[ DATABASE ]');
 
 		onBot(botData);
-
-
 
 	} catch (error) {
 
@@ -828,7 +420,5 @@ async function onBot({ models: botModel }) {
 
 	console.log(chalk.bold.hex('#eff1f0')
 		.bold('================== SUCCES ====================='));
-
-
 
 })();
