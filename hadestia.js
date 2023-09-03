@@ -267,56 +267,65 @@ async function onBot({ models: botModel }) {
 			for (const value of directory) {
 				
 				const newPath = join(path, value);
-				
+			    
 				if (value.endsWith('.json')) {
+					
 					handleObject(newPath);
 				// assuming it was a directory
 				} else {
-					handleInnerModuleDirectory(newPath, handleObject)
+					
+					handleInnerModuleDirectory(newPath, handleObject);
+					
 				}
 			}
 		}
 		
-		global.HADESTIA_BOT_CLIENT.timeStart = new Date()
-			.getTime(),
+		global.HADESTIA_BOT_CLIENT.timeStart = new Date().getTime();
 
-			// COMMANDS FOLDER
+		// HANDLE MODULES
 		
-			function() {
+		function() {
 				
-				const rootPath = global.HADESTIA_BOT_CLIENT.mainPath + '/modules/';
+			const rootPath = global.HADESTIA_BOT_CLIENT.mainPath + '/modules/';
 				
-				// Load modules: command & event folder
-				const moduleTypes = readdirSync(rootPath).filter(dir => dir.includes('commands') || dir.includes('events'));
-					
-				for (const type of moduleTypes) {
+			// Load modules: command & event folder
+			const moduleTypes = readdirSync(rootPath).filter(dir => dir.includes('commands') || dir.includes('events'));
+				
+			for (const type of moduleTypes) {
 	
-					//const categories = readdirSync(join(rootPath, type));
-					handleInnerModuleDirectory(join(rootPath, type), function (objectPath) {
-							
-							const objects = require(objectPath);
-							
+				//const categories = readdirSync(join(rootPath, type));
+				handleInnerModuleDirectory(join(rootPath, type), function (objectPath) {
+						
+						const objects = require(objectPath);
+						
+						try {
 							for (const obj of objects) {
 								
 								const type = obj.type.trim().toLowerCase();
+								
 								// HANDLE COMMAND TYPE OBJECTS
-								if (type == 'commands') {
+								if (type == 'commands' || type == 'command') {
 									
 									console.log(obj);
 									
-								} else (type == 'events') {
 								// ELSE EVENT TYPE OBJECTS
+								} else if (type == 'events' || type == 'event') {
+								
 									console.log(obj);
 									
 								}
 								
 							}
+						
+						} catch (err) {
+							throw new Error (err);
+						}
 							
-					});
+				});
 					
-				}
+			}
 				
-			}();
+		}();
 
 		logger.loader(getText('mirai', 'finishLoadModule', global.HADESTIA_BOT_CLIENT.commands.size, global.HADESTIA_BOT_CLIENT.events.size))
 

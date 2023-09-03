@@ -1,7 +1,7 @@
 [
     {
         "id": "$command-or-event-id-to-avoid-duplicates",
-        "type": "command or event",
+        "type": "commands",
         "version": "1.0.1",
         "permission": 0,
         "disabled": false,

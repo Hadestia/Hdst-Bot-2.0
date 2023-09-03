@@ -119,7 +119,7 @@
 		function startBot(message) {
 	    	(message) ? logger(message, '[ Starting ]') : '';
 	
-	    	const child = spawn('node', ['--trace-warnings', 'Hadestia.js'], {
+	    	const child = spawn('node', ['--trace-warnings', 'hadestia.js'], {
 	        	cwd: __dirname,
 	        	stdio: 'inherit',
 	        	shell: true
